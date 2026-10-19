@@ -1,4 +1,4 @@
-package com.example.andika_3tia.pertemuan_5
+package com.example.andika_3tia.home.pertemuan_5
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.andika_3tia.R
-import com.example.andika_3tia.databinding.ActivityMainBinding
 import com.example.andika_3tia.databinding.ActivityWebViewBinding
 import android.webkit.WebViewClient
-import android.view.MenuItem
 
 class WebViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWebViewBinding

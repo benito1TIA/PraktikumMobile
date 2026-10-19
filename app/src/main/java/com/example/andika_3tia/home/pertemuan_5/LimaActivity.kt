@@ -1,4 +1,4 @@
-package com.example.andika_3tia.pertemuan_5
+package com.example.andika_3tia.home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.andika_3tia.R
-import com.example.andika_3tia.databinding.ActivityMainBinding
 import android.view.MenuItem
 import android.view.Menu
 import android.widget.Toast
