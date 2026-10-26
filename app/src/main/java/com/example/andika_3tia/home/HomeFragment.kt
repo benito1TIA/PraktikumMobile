@@ -19,12 +19,13 @@ import com.example.andika_3tia.databinding.ActivityMainBinding
 import com.example.andika_3tia.databinding.FragmentHomeBinding
 import com.example.andika_3tia.home.pertemuan_5.LimaActivity
 import com.example.andika_3tia.home.pertemuan_6.Enam
+import com.example.andika_3tia.home.pertemuan_9.NinthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
 
 class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding?=null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,8 +33,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-      //  return inflater.inflate(R.layout.fragment_home, container, false)
-        _binding= FragmentHomeBinding.inflate(inflater,container,false)
+        //  return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -49,13 +50,19 @@ class HomeFragment : Fragment() {
 
 
         binding.btnSnackbar.setOnClickListener {
-            Snackbar.make(binding.root, "Item dihapus",
-                Snackbar.LENGTH_LONG)
+            Snackbar.make(
+                binding.root, "Item dihapus",
+                Snackbar.LENGTH_LONG
+            )
                 .setAction("BATAL") {
                     // kembalikan item
                     val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(requireContext(),"kembali ke halaman Activity" , Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "kembali ke halaman Activity",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 }
                 .show()
@@ -65,8 +72,10 @@ class HomeFragment : Fragment() {
         binding.btnAlert.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Hapus data")
-                .setMessage("Data yang dihapus tidak " +
-                        "bisa dikembalikan.")
+                .setMessage(
+                    "Data yang dihapus tidak " +
+                            "bisa dikembalikan."
+                )
                 .setNegativeButton("Batal", null)
                 .setPositiveButton("Hapus") { dialog, _ ->
 
@@ -84,23 +93,25 @@ class HomeFragment : Fragment() {
         binding.btnToEnam.setOnClickListener {
             startActivity(Intent(requireContext(), Enam::class.java))
         }
-        binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(requireContext())
-                .setTitle("Logout")
-                .setMessage("Apakah Anda yakin ingin keluar?")
+        binding.btnToSembilan.setOnClickListener {
+            startActivity(Intent(requireContext(), NinthActivity::class.java))
+            binding.btnLogout.setOnClickListener {
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Logout")
+                    .setMessage("Apakah Anda yakin ingin keluar?")
 
-                .setPositiveButton("Ya") { dialog, _ ->
-                    val editor = sharedPref.edit()
-                    editor.clear()
-                    editor.apply()
-                    dialog.dismiss()
-                    startActivity(Intent(requireContext(), LoginActivity::class.java))
-                    requireActivity()
-                }
-                .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
-                .show()
+                    .setPositiveButton("Ya") { dialog, _ ->
+                        val editor = sharedPref.edit()
+                        editor.clear()
+                        editor.apply()
+                        dialog.dismiss()
+                        startActivity(Intent(requireContext(), LoginActivity::class.java))
+                        requireActivity()
+                    }
+                    .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
+                    .show()
+            }
+
         }
-
     }
-
 }
