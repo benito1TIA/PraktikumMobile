@@ -17,6 +17,7 @@ import com.example.andika_3tia.MainActivity
 import com.example.andika_3tia.R
 import com.example.andika_3tia.databinding.ActivityMainBinding
 import com.example.andika_3tia.databinding.FragmentHomeBinding
+import com.example.andika_3tia.home.pertemuan_10.TenthActivity
 import com.example.andika_3tia.home.pertemuan_5.LimaActivity
 import com.example.andika_3tia.home.pertemuan_6.Enam
 import com.example.andika_3tia.home.pertemuan_9.NinthActivity
@@ -95,6 +96,9 @@ class HomeFragment : Fragment() {
         }
         binding.btnToSembilan.setOnClickListener {
             startActivity(Intent(requireContext(), NinthActivity::class.java))
+        }
+        binding.btnToSepuluh.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
             binding.btnLogout.setOnClickListener {
                 AlertDialog.Builder(requireContext())
                     .setTitle("Logout")
